@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulaznice | Meet For Speed</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+    <link rel="icon" href="img/mfs_znak_rgb_boja.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section class="tickets-hero">
+        <div class="tickets-hero-media">
+            <picture>
+                <source srcset="../img/ulaznice-mobile.png" media="(max-width: 768px)">
+                <img src="../img/ulaznice.png" class="tickets-hero-bg">
+            </picture>
+        </div>
+
+        <div class="tickets-hero-overlay"></div>
+
+        <div class="tickets-hero-content">
+            <h1>ULAZNICE</h1>
+            <p>Odaberi dnevnu, festivalsku ili VIP ulaznicu i osiguraj si mjesto na najbržem festivalu u regiji. 3 dana. 24 sata programa. Bez kočnica.</p>
+            <a href="https://www.entrio.hr/event/meet-for-speed-31443" target="_blank" class="hero-btn">KUPI ULAZNICE</a>
+        </div>
+    </section>
+
+    <!-- TICKETS -->
+    <section class="tickets-types">
+
+        <!-- JEDNODNEVNA -->
+        <div class="ticket-card" onclick="goToBuy()">
+            <h3>JEDNODNEVNA</h3>
+            <p class="desc">Vrijedi za jedan dan (petak, subota ili nedjelja)</p>
+
+            <div class="price"> od 20€</div>
+            <p class="note">Djeca do 12 godina besplatno</p>
+
+            <ul>
+                <li>Ulaz na festival</li>
+                <li>Parkiranje</li>
+                <li>Pristup tribinama<span class="note-star">*</span></li>
+            </ul>
+            <br>
+            <small class="note-text"><span class="note-star">*</span>sjedala nisu rezervirana, već ovise o trenutnoj raspoloživosti</small>
+        </div>
+
+        <!-- FESTIVAL -->
+        <div class="ticket-card featured" onclick="goToBuy()">
+            <div class="badge">NAJPOPULARNIJE</div>
+
+            <h3>FESTIVALSKA</h3>
+            <p class="desc">Vrijedi za sva tri dana</p>
+
+            <div class="price">45€</div>
+            <p class="note">Djeca do 12 godina besplatno</p>
+
+            <ul>
+                <li>Ulaz na festival</li>
+                <li>Parkiranje</li>
+                <li>Pristup tribinama<span class="note-star">*</span></li>
+            </ul>
+            <br>
+            <small class="note-text"><span class="note-star">*</span>sjedala nisu rezervirana, već ovise o trenutnoj raspoloživosti</small>
+        </div>
+
+        <!-- VIP -->
+        <div class="ticket-card vip" onclick="goToBuy()">
+            <h3>VIP</h3>
+
+            <p class="desc">Vrijedi za jedan dan (petak, subota ili nedjelja)</p>
+
+            <div class="price">200€</div>
+
+            <ul>
+                <li>Ulaz na festival</li>
+                <li>Parkiranje (VIP)</li>
+                <li>Pristup tribinama<span class="note-star">*</span></li>
+                <li>Hrana i piće</li>
+                <li>Pristup VIP prostorima (terasa + klimatizirani prostor)</li>
+            </ul>
+
+            <br>
+            <small class="note-text"><span class="note-star">*</span>sjedala nisu rezervirana, već ovise o trenutnoj raspoloživosti</small>
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="tickets-cta">
+        <h2>VIDIMO SE NA STAZI</h2>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-box">
+            <p>
+            Koristimo nužne kolačiće za ispravno funkcioniranje web stranice. U nastavku možete upravljati svojim izborom.
+            <a href="../cookies/index.html">Saznaj više</a>
+            </p>
+
+            <div class="cookie-buttons">
+            <button id="reject-cookies" class="btn-reject">Odbij</button>
+            <button id="accept-cookies" class="btn-accept">Prihvati</button>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPTS -->
+    <script src="../js/header.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script>
+        fetch("../header.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("header-placeholder").innerHTML = data;
+        });
+
+        fetch("../footer.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("footer-placeholder").innerHTML = data;
+        });
+
+        function toggleMenu(){
+            document.getElementById("menu").classList.toggle("active");
+        }
+
+        function goToBuy(){
+            document.getElementById("buy").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+</body>
+</html>
