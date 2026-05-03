@@ -7,22 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
     return localStorage.getItem("cookieConsent");
   }
 
-  function setConsent(value) {
-    localStorage.setItem("cookieConsent", value);
-  }
-
   function blockMap() {
     wrapper.innerHTML = `
       <div style="width:100%;height:450px;background:#111;color:#aaa;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:10px;padding:20px;">
         <div>
           <p>Za prikaz Google karte potrebno je prihvatiti kolačiće.</p>
-          <button class="cta" id="enable-map">Prikaži kartu</button>
         </div>
       </div>
     `;
   }
 
   function loadMap() {
+    if (getConsent() !== "accepted") return;
+
     wrapper.innerHTML = `
       <iframe 
         src="https://www.google.com/maps?q=Automotodrom+Grobnik&output=embed&t=k"
@@ -35,19 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  if (getConsent() === "accepted") {
+  function renderMap() {
+    if (getConsent() !== "accepted") {
+      blockMap();
+      return;
+    }
+
     loadMap();
-  } else {
-    blockMap();
   }
 
-  document.addEventListener("click", (e) => {
+  renderMap();
+
+  wrapper.addEventListener("click", (e) => {
     const btn = e.target.closest("#enable-map");
     if (!btn) return;
 
-    localStorage.setItem("cookieConsent", "accepted");
-    wrapper.innerHTML = "";
-    loadMap();
   });
 
 });

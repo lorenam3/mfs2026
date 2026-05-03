@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (rejectBtn) {
     rejectBtn.addEventListener("click", () => {
-        localStorage.setItem("cookieConsent", "rejected");
-
-        location.reload();
+      localStorage.setItem("cookieConsent", "rejected");
+      banner.style.display = "none";
+      location.reload();
     });
   }
 
