@@ -1,3 +1,5 @@
+
+console.log("LOKACIJA JS RADI");
 document.addEventListener("DOMContentLoaded", () => {
 
   const wrapper = document.getElementById("map-wrapper");
