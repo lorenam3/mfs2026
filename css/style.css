@@ -454,6 +454,10 @@ section,
   z-index: 2;
 }
 
+.category-link:hover {
+  text-decoration: none;
+}
+
 .category-content h2 {
   font-size: 2.8rem;
   font-weight: 900;
@@ -1796,8 +1800,8 @@ section,
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
-  padding: calc(var(--header-height) + 10px) 2px 2px;
-  }
+  padding: calc(var(--header-height) + 10px) 2px 90px;
+}
 
 .grid-item {
   aspect-ratio: 1 / 1;
@@ -1888,10 +1892,10 @@ section,
 
 .post {
   position: relative;
-  aspect-ratio: 4 / 5;
-  width: 100%;
+  width: calc(100% - 24px);
   max-width: 420px;
-  height: 90vh;
+  aspect-ratio: 4 / 5;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2620,7 +2624,7 @@ section,
     width: 100%;
     max-width: 935px;
     margin: 0 auto;
-    padding: calc(var(--header-height) + 10px) 10px 2px;
+    padding: calc(var(--header-height) + 10px) 10px 150px;
   }
 
   .ig-modal {
