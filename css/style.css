@@ -3,6 +3,7 @@
   src: url("../fonts/NewScience/NewScienceTRIAL-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   src: url("../fonts/NewScience/NewScienceTRIAL-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 /* Extended verzija kao dodatni weight/style */
@@ -18,6 +20,7 @@
   src: url("../fonts/NewScienceExtended/NewScienceExtendedTRIAL-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -25,6 +28,7 @@
   src: url("../fonts/NewScienceExtended/NewScienceExtendedTRIAL-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -162,6 +166,7 @@ section,
   width: 100%;
   padding-top: 0;
   margin-top: 0;
+  position: relative;
 }
 
 .hero video {
@@ -187,6 +192,39 @@ section,
 
 .video-mobile {
   display: block;
+}
+
+/* kupi ulaznice button*/
+/* CTA pozicioniranje */
+.hero-cta {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.cta-btn {
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #FFD200;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,210,0,0.6);
+  text-decoration: none;
+  color: white;
 }
 
 /************************** ABOUT-COMPACT *****************************/
@@ -436,57 +474,6 @@ section,
   color: rgba(255,255,255,0.08);
 }
 
-/************ SUB SECTION *********************/
-/* .sub {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  padding: 80px 10%;
-}
-
-.sub-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.sub-item img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-
-.sub-item:hover img {
-  transform: scale(1.1);
-}
-
-.sub-item .text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  background: linear-gradient(to top, black, transparent);
-}
-
-.sub-item h3 {
-  color: #FFD200;
-  font-size: 2rem;
-}
-
-.sub-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(255,214,0,0.2);
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.sub-item:hover::after {
-  opacity: 1;
-} */
-
 /************************  CAROUSEL SECTION ******************************/
 .carousel-section {
   padding: 60px 20px;
@@ -538,56 +525,6 @@ section,
 .swiper-pagination-bullet-active {
   opacity: 1;
 }
-
-/* ------------------  vodeći ljudii ------------ */
-/* .people {
-  padding: 60px 20px;
-  background: #000;
-  color: #fff;
-}
-
-.people-intro-alt {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 60px;
-}
-
-.people-headline h2 {
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1.1;
-  margin: 10px 0 0;
-}
-
-.people-text p {
-  font-size: 14px;
-  color: #bbb;
-  line-height: 1.6;
-  margin-bottom: 10px;
-  max-width: 500px;
-}
-
-.people-headline::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: #FFD200;
-  margin-top: 15px;
-}
-
-.people-grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 10px;
-}
-
-.person img {
-  width: 100%;
-  border-radius: 10px;
-} */
-
 
 /******************************* SPONZORI     ****************************/
 .sponsors {
@@ -674,23 +611,7 @@ section,
   z-index: 2;
 }
 
-/***************** section logo divider **********/
-/* .section-logo-divider {
-  text-align: center;
-  /* padding: 40px 20px;
-}
 
-.section-logo-divider img {
-  filter: drop-shadow(0 0 10px rgba(255,210,0,0.4));
-  width: 300px;
-  opacity: 0.8;
-  transition: 0.4s;
-}
-
-.section-logo-divider img:hover {
-  opacity: 1;
-  transform: scale(1.05);
-} */
 
 /******************* ************************/
 /******************* ************************/
@@ -1212,7 +1133,6 @@ section,
 }
 
 /* u brojkama */
-
 .location-highlights {
   padding: 100px 20px;
   max-width: 900px;
@@ -1313,7 +1233,6 @@ section,
 }
 
 /* DISTANCES*/
-
 .location-access {
   padding: 100px 20px;
   max-width: 700px;
@@ -1361,8 +1280,6 @@ section,
   margin-left: auto;
   text-align: right;
 }
-
-
 
 /**------------ KONTAKT PODSTRANICA ------------------- */
 .contact {
@@ -1485,69 +1402,6 @@ section,
   opacity: 0.6;
   margin-bottom: 15px;
 }
-/* vodeci ljudi */
-/* SECTION TITLE */
-/* .section-title {
-  text-align: center;
-  color: #FFD200;
-  font-family: "New Science Extended";
-  letter-spacing: 4px;
-  margin-bottom: 30px;
-}
-
-.people-grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 10px;
-  padding: 0 10px;
-}
-
-.person {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  background: black;
-}
-
-.person img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.person-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 15px;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.9),
-    rgba(0,0,0,0.3),
-    transparent
-  );
-  opacity: 1;
-}
-
-.person-overlay h3 {
-  margin: 0;
-  font-size: 16px;
-  color: #FFD200;
-}
-
-.person-overlay p {
-  margin: 0;
-  font-size: 12px;
-  opacity: 0.8;
-}
-
-.person:hover {
-  box-shadow: 0 0 25px rgba(255,210,0,0.4);
-} */
-
 
 /* --------------- PROBA ----------- */
 .about-event {
@@ -1669,8 +1523,6 @@ section,
 
 
 /* PITANJA */
-
-
 .mf-faq {
   padding: 80px 20px;
   max-width: 800px;
@@ -1802,8 +1654,9 @@ section,
   border-top: 1px solid rgba(255,255,255,0.1);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  /* gap: 15px; */
   text-align: center;
+  align-items: center;
 }
 
 .footer-bottom-bar {
@@ -1936,6 +1789,185 @@ section,
   text-decoration: underline;
 }
 
+
+
+/*************************** IG PODSTRANICE KATEGORIJA *******************************/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: calc(var(--header-height) + 10px) 2px 2px;
+  }
+
+.grid-item {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+  position: relative;
+}
+
+.grid-title {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  color: #FFD200;
+  font-weight: 900;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.grid-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #FFD200;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+
+
+.grid-badge svg {
+  width: 18px;
+  height: 18px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.grid-item:hover img {
+  transform: scale(1.05);
+}
+
+.img-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+  will-change: transform;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.15s ease;
+}
+
+.ig-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.80);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2000;
+}
+
+.ig-modal.active {
+  display: flex;
+}
+
+.post {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  max-width: 420px;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.post img:active {
+  transform: scale(0.99);
+  transition: 0.1s;
+}
+
+/* buttons */
+.close, .nav {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.close:hover,
+.nav:hover {
+  color: #FFD200;
+}
+
+.close {
+  top: 10px;
+  right: 15px;
+}
+
+.prev {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.close,
+.nav {
+  z-index: 10;
+}
+/* dots */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  gap: 5px;
+  z-index: 2;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+}
+
+.dot.active {
+  background: #FFD200;
+}
+
+#modalImg {
+  transition: transform 0.15s ease;
+}
+
 /* DESKTOP */
 @media(min-width:768px){
 
@@ -1994,6 +2026,17 @@ section,
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  /* CTA za desktop */
+  .hero-cta {
+    bottom: 40px;
+  }
+
+  .cta-btn {
+    font-size: 18px;
+    padding: 18px 48px;
+    letter-spacing: 3px;
   }
 
   .hero video {
@@ -2125,7 +2168,7 @@ section,
 
   .category.right .category-content {
     left: auto;
-    right: 15%;
+    right: 20%;
   }
 
   .category-content.motorsport,
@@ -2149,10 +2192,6 @@ section,
     margin-top: 6px;
     max-width: 90%;
   }
-
-  /* .section-logo-divider img {
-    width: 700px;
-  } */
 
   .carousel-container::before,
   .carousel-container::after {
@@ -2224,8 +2263,6 @@ section,
   .note {
     font-size: 17px;
   }
-
-
 
 
   /* LOKACIJA */
@@ -2356,12 +2393,6 @@ section,
   }
 
 
-
-
-
-
-
-
   /* ABOUT */
 
   .about-big {
@@ -2488,7 +2519,7 @@ section,
   }
 
   .footer-bottom {
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: space-between;
     align-items: center;
     text-align: left;
@@ -2507,7 +2538,6 @@ section,
   }
 
   .footer-bottom-bar {
-    margin-top: 60px;
     padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
@@ -2578,6 +2608,45 @@ section,
     justify-content: flex-start;
   }
 
+
+
+
+  /*IG kategorija */
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    width: 100%;
+    max-width: 935px;
+    margin: 0 auto;
+    padding: calc(var(--header-height) + 10px) 10px 2px;
+  }
+
+  .ig-modal {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .post {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    background: #000;
+  }
+
+  .post img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  .grid-title {
+    font-size: 22px;
+  }
 }
 
 @media(min-width:1200px){
@@ -2638,10 +2707,7 @@ section,
     font-size: 17px;
   }
 
-
-
-
-
+  /*LOKACIJA */
 
   .location-zones__grid {
     grid-template-columns: repeat(4, 1fr);
