@@ -190,8 +190,59 @@ section,
   display: none;
 }
 
+.desktop {
+  display: none;
+}
+
 .video-mobile {
   display: block;
+}
+
+.mobile {
+  display: block;
+}
+
+.hero-video.desktop {
+  display: none;
+}
+
+.hero-video.mobile {
+  display: block;
+}
+
+.sound-toggle {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  z-index: 10;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  border: 1px solid #FFD200;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+
+  color: #FFD200;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+
+.sound-toggle:hover {
+  background: #FFD200;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.sound-toggle:focus {
+  outline: none;
 }
 
 /* kupi ulaznice button*/
@@ -2007,6 +2058,12 @@ section,
   text-align: center;
 }
 
+.countdown-section.kontakt,
+.countdown-section.pitanja {
+    padding-top: 182px;
+    padding-bottom: 10px;
+  }
+
 .countdown-label {
   display: block;
   color: #777;
@@ -2135,9 +2192,25 @@ section,
     display: block;
   }
 
+  .desktop {
+    display: block;
+  }
+
   .video-mobile {
     display: none;
   }
+
+  .mobile {
+    display: none;
+  }
+
+  .hero-video.desktop {
+    display: block;
+  }
+
+  .hero-video.mobile {
+    display: none;
+  } 
 
   .hero {
     height: 100vh;
@@ -2164,6 +2237,16 @@ section,
   .hero video {
     position: absolute;
     height: 100%;
+  }
+
+
+  /* SOUND VIDEO HERO */
+
+  .sound-toggle {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    font-size: 12px;
   }
 
   .sub-item {
