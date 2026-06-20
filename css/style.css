@@ -2290,6 +2290,10 @@ section,
     padding: 0;
   }
 
+  .category-hypercars {
+    height: 75vh;
+  }
+
   .category-bg {
     position: absolute;
     inset: 0;
