@@ -116,15 +116,18 @@
   <link rel="preload" as="image" href="/img/poster-mobile-hero.webp" media="(max-width: 767px)" fetchpriority="high"/>
 
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Swiper -->
-  <link rel="stylesheet" href="/css/swiper-bundle.min.css">
-  <!-- AOS -->
-  <link rel="stylesheet" href="/css/aos.css">
-  <link rel="preload" href="/fonts/NewScience/NewScienceTRIAL-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fontawesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preload" rel="stylesheet" href="/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/bootstrap.min.css"></noscript>
+
   <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Swiper -->
+  <link rel="preload" href="/css/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/swiper-bundle.min.css"></noscript>
+  <!-- AOS -->
+  <link rel="preload" href="/css/aos.css" as="style" >
+  <link rel="preload" href="/fonts/NewScience/NewScienceTRIAL-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
 </head>
 
@@ -144,11 +147,11 @@
     <video id="hero-video-mobile" class="hero-video mobile"
       autoplay muted loop playsinline preload="auto"
       poster="img/poster-mobile-hero.webp">
-      <source src="img/hero-mobile-video.mp4" type="video/mp4">
+      <source src="img/hero-mobile-mfs-video.mp4" type="video/mp4">
     </video>
 
-    <button class="sound-toggle">
-      <i class="fa-solid fa-volume-xmark"></i>
+    <button class="sound-toggle" aria-label="Toggle video sound">
+      <i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>
     </button>
 
     <div class="hero-cta">
@@ -221,12 +224,12 @@
     <div class="category-bg">
 
        <!-- Desktop video -->
-      <video class="video-desktop" autoplay muted loop playsinline preload="metadata" poster="img/poster-desktop-hypercars.webp" aria-label="Hypercars na Meet For Speed 2026" >
+      <video class="video-desktop lazy-video" autoplay muted loop playsinline preload="none" poster="img/poster-desktop-hypercars.webp" aria-label="Hypercars na Meet For Speed 2026" >
         <source src="img/Hypercars_desktop.mp4" type="video/mp4">
       </video>
 
       <!-- Mobile video -->
-      <video class="video-mobile" autoplay muted loop playsinline poster="img/poster-mobile-hypercars.webp"  preload="none" aria-label="Hypercars na Meet For Speed 2026">
+      <video class="video-mobile lazy-video" autoplay muted loop playsinline poster="img/poster-mobile-hypercars.webp"  preload="none" aria-label="Hypercars na Meet For Speed 2026">
         <source src="img/hypercar_mobile.mp4" type="video/mp4">
       </video>
     </div>
@@ -260,12 +263,12 @@
     <div class="category-bg">
 
        <!-- Desktop video -->
-      <video class="video-desktop" autoplay muted loop playsinline poster="img/poster-desktop-supercars.webp" aria-label="Supercars najekskluzivnije zvijeri na Meet For Speed 2026">
+      <video class="video-desktop lazy-video" autoplay muted loop playsinline  preload="none" poster="img/poster-desktop-supercars.webp" aria-label="Supercars najekskluzivnije zvijeri na Meet For Speed 2026">
         <source src="img/Web_Supercars_H.mp4" type="video/mp4">
       </video>
 
       <!-- Mobile video -->
-      <video class="video-mobile" autoplay muted loop playsinline poster="img/poster-mobile-supercars.webp"  preload="none" aria-label="Supercars najekskluzivnije zvijeri na Meet For Speed 2026">
+      <video class="video-mobile lazy-video" autoplay muted loop playsinline poster="img/poster-mobile-supercars.webp"  preload="none" aria-label="Supercars najekskluzivnije zvijeri na Meet For Speed 2026">
         <source src="img/Web-Supercars-V.mp4" type="video/mp4">
       </video>
     </div>
@@ -294,12 +297,12 @@
   <section class="category right">
     <div class="category-bg">
       <!-- Desktop video -->
-      <video class="video-desktop" autoplay muted loop playsinline poster="img/poster-desktop-noviteti.webp"   aria-label="Noviteti automobila na Meet For Speed 2026">
+      <video class="video-desktop lazy-video" autoplay muted loop playsinline preload="none" poster="img/poster-desktop-noviteti.webp"   aria-label="Noviteti automobila na Meet For Speed 2026">
         <source src="img/Web_Noviteti_MG_h.mp4" type="video/mp4">
       </video>
 
       <!-- Mobile video -->
-      <video class="video-mobile" autoplay muted loop playsinline poster="img/poster-mobile-noviteti.webp"  preload="none" aria-label="Noviteti automobila na Meet For Speed 2026">
+      <video class="video-mobile lazy-video" autoplay muted loop playsinline poster="img/poster-mobile-noviteti.webp"  preload="none" aria-label="Noviteti automobila na Meet For Speed 2026">
         <source src="img/Web-Noviteti-Mg-V.mp4" type="video/mp4">
       </video>
     </div>
@@ -773,6 +776,28 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+  </script> -->
+
+  <!-- <script>
+    const videos = document.querySelectorAll('.lazy-video');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const video = entry.target;
+        const source = video.querySelector('source');
+
+        source.src = source.dataset.src;
+
+        video.load();
+        video.play();
+
+        observer.unobserve(video);
+      });
+    });
+
+    videos.forEach(video => observer.observe(video));
   </script> -->
 
 
